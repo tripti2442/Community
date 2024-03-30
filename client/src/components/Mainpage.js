@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Mainpage.css"; // Import CSS file for styling
 import Post from "./Post";
 import Home from "./Home.js";
+import HomeFeed from "./feedposts.js";
 
 export default function Mainpage() {
     // State to track the selected option
@@ -18,13 +19,11 @@ export default function Mainpage() {
     const renderContent = () => {
         switch (selectedOption) {
             case "Home":
-                return <div>Home Feed Content</div>;
+                return <div><Post></Post><HomeFeed></HomeFeed></div>
             case "Search Destination":
                 return <div>Search Destination Content</div>;
             case "Travel Buddy":
                 return <Home/>;
-            case "Add a Post":
-                return <Post/>;
             case "User Profile":
                 return <div>User Profile Content</div>;
         }
@@ -38,7 +37,6 @@ export default function Mainpage() {
                     <li className={selectedOption === "Home" ? "selected" : ""} onClick={() => handleOptionSelect("Home")}>Home</li>
                     <li className={selectedOption === "Search Destination" ? "selected" : ""} onClick={() => handleOptionSelect("Search Destination")}>Search Destination</li>
                     <li className={selectedOption === "Travel Buddy" ? "selected" : ""} onClick={() => handleOptionSelect("Travel Buddy")}>Travel Buddy</li>
-                    <li className={selectedOption === "Add a Post" ? "selected" : ""} onClick={() => handleOptionSelect("Add a Post")}>Add a Post</li>
                     <li className={selectedOption === "User Profile" ? "selected" : ""} onClick={() => handleOptionSelect("User Profile")}>User Profile</li>
                 </ul>
             </div>

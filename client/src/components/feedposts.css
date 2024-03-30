@@ -1,0 +1,70 @@
+/* HomeFeed.css */
+
+.home-feed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .post {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .post-header {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+  }
+  
+  .user-id {
+    margin-right: 5px;
+  }
+  
+  .location {
+    color: #666;
+  }
+  
+  .post-image {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .post-details {
+    padding: 10px;
+  }
+  
+  .caption {
+    margin-bottom: 10px;
+  }
+  
+  .comments {
+    margin-bottom: 10px;
+  }
+  
+  .comment {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  .like-button {
+    background-color: #ff5903;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .like-button:hover {
+    background-color: #ff5903;
+  }
+  

@@ -3,6 +3,7 @@ import BuddySearch from './BuddySearch';
 import Filter from './Filter';
 import Add from './Add';
 import Delete from './Delete';
+import './Home.css';
 
 class Home extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class Home extends Component {
       partners: [],
       startLocation: '',
       endLocation: '',
+      showContent: false,
     };
   }
 
@@ -31,37 +33,56 @@ class Home extends Component {
 
   handleInputChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
+      showContent: false, // Reset showContent state when input changes
     });
   }
 
-  render() {
-    const { startLocation, endLocation, partners } = this.state;
-    return (
-      <div className="home-container">
-        {/* Search and filter section */}
-        <div className="search-filter-section">
-          <BuddySearch
-            startLocation={startLocation}
-            endLocation={endLocation}
-            onInputChange={this.handleInputChange}
-          />
-          <Filter
-            startLocation={startLocation}
-            endLocation={endLocation}
-            partners={partners}
-          />
-        </div>
+  handleSearch = () => {
+    this.setState({ showContent: true });
+  }
 
-        {/* Add and delete section */}
-        <div className="add-delete-section">
-          <div>
-            <h4>Add an invitation:</h4>
-            <Add className="add-button" />
+  render() {
+    const { startLocation, endLocation, partners, showContent } = this.state;
+    return (
+      <div>
+        {/* Navbar */}
+        <nav className="navbar">
+          <h1 className="logo">Travel Buddy</h1>
+        </nav>
+
+        {/* Main content area */}
+        <div className="main-content">
+          {/* Search and filter section */}
+          <div className="search-filter-section">
+            <BuddySearch
+              startLocation={startLocation}
+              endLocation={endLocation}
+              onInputChange={this.handleInputChange}
+            />
+            <Filter
+              startLocation={startLocation}
+              endLocation={endLocation}
+              partners={partners}
+            />
           </div>
-          <div>
-            <h4>Delete an invitation:</h4>
-            <Delete className="delete-button" />
+
+          {/* Content area to show after search */}
+          {showContent && (
+            <div className="content-area">
+              <h2 className="content-heading">Search Results</h2>
+              {/* You can render the search results or other content here */}
+            </div>
+          )}
+
+          {/* Add and delete section */}
+          <div className="add-delete-section">
+            <div className="add-section">
+              <Add className="add-button" />
+            </div>
+            <div className="delete-section">
+              <Delete className="delete-button" />
+            </div>
           </div>
         </div>
       </div>

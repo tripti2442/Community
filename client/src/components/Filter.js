@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Filter.css';
 
 export class Filter extends Component {
   constructor(props) {
@@ -47,32 +48,31 @@ export class Filter extends Component {
     }
 
     return (
-      <div>
-        <br></br>
-        Show
-        <select value={selectedFilter} onChange={this.handleFilterChange}>
+      <div className="filter-container">
+        <label htmlFor="filter-select" className="filter-label">Show:</label>
+        <select id="filter-select" className="filter-select" value={selectedFilter} onChange={this.handleFilterChange}>
           <option value="all">Show All Partners</option>
           <option value="ratings">Sort by Ratings</option>
           <option value="solo">Show Solo Partners</option>
           <option value="personality">Sort by Personality</option>
         </select>
         {filteredList && filteredList.length > 0 ? (
-          <ul>
+          <ul className="filtered-partner-list">
             {filteredList.map((partner, index) => (
-              <li key={index}>
+              <li key={index} className="partner-item">
                 {/* Render partner details */}
-                <div>Name: {partner.name}</div>
-                <div>Start Point: {partner.startpoint}</div>
-                <div>End Point: {partner.endpoint}</div>
-                <div>Type: {partner.type}</div>
-                <div>Rating: {partner.rating}</div>
-                <div>Personality: {partner.personality.join(', ')}</div>
+                <div className="partner-details">Name: {partner.name}</div>
+                <div className="partner-details">Start Point: {partner.startpoint}</div>
+                <div className="partner-details">End Point: {partner.endpoint}</div>
+                <div className="partner-details">Type: {partner.type}</div>
+                <div className="partner-details">Rating: {partner.rating}</div>
+                <div className="partner-details">Personality: {partner.personality.join(', ')}</div>
                 {/* Add more fields as needed */}
               </li>
             ))}
           </ul>
         ) : (
-          <p>No partners found</p>
+          <p className="no-partners-message">No partners found</p>
         )}
       </div>
     );

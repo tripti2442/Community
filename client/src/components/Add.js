@@ -96,7 +96,7 @@ const FormComponent = () => {
             placeholder="Your visiting points (comma-separated)"
           />
           <br /><br />
-          <button type="submit">Add</button>
+          <button type="submit" id='submitbutton'>Add</button>
         </form>
       )}
     </div>

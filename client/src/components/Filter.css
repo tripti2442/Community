@@ -1,0 +1,47 @@
+/* Filter.css */
+
+/* Filter container styles */
+.filter-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 6px;
+    margin-top: 20px;
+  }
+  
+  /* Filter label styles */
+  .filter-label {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  /* Filter select styles */
+  .filter-select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+  }
+  
+  /* Filtered partner list styles */
+  .filtered-partner-list {
+    margin-top: 20px;
+  }
+  
+  /* Partner item styles */
+  .partner-item {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+  
+  /* Partner details styles */
+  .partner-details {
+    margin-bottom: 5px;
+  }
+  
+  /* No partners found message styles */
+  .no-partners-message {
+    font-size: 16px;
+    color: #555;
+  }
+  

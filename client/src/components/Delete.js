@@ -45,7 +45,7 @@ export class Delete extends Component {
             &nbsp; &nbsp;
             <input type="text" name="endpoint" placeholder="Your endpoint" />
             <br></br><br></br>
-            <button type="submit">Delete</button>
+            <button type="submit" id="submitbutton">Delete</button>
           </form>
         )}
       </div>

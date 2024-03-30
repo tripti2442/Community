@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import "./BuddySearch.css"
 class BuddySearch extends Component {
   handleSubmit = (event) => {
     event.preventDefault(); // Prevent the default form submission behavior
@@ -39,7 +39,7 @@ class BuddySearch extends Component {
             onChange={onInputChange} 
           />
           &nbsp; &nbsp;&nbsp; &nbsp;
-          <button type="submit">Submit</button>
+          <button type="submit" id="submitbutton">Submit</button>
         </form>
       </div>
     );

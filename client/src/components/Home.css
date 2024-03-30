@@ -1,0 +1,114 @@
+/* Home.css */
+
+/* Navbar styles */
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .nav-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Main content area styles */
+  .main-content {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  /* Add and delete section styles */
+  .add-delete-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .add-section,
+  .delete-section {
+    flex-basis: 48%;
+  }
+  
+  /* Add and delete buttons */
+  .add-button,
+  .delete-button {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-button:hover,
+  .delete-button:hover {
+    background-color: #005f70;
+  }
+
+
+  /* Home.css */
+
+/* Form styles */
+form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 6px;
+    margin-top: 20px;
+  }
+  
+  /* Form input styles */
+  form input[type="text"],
+  form input[type="file"] {
+    width: calc(100% - 24px); /* Adjust input width */
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  /* Upload button styles */
+  form button[type="submit"] {
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  /* Upload button hover effect */
+  form button[type="submit"]:hover {
+    background-color: #005f70;
+  }
+  
+  
