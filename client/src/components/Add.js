@@ -55,24 +55,34 @@ const FormComponent = () => {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor='userid'>User ID </label>
+      &nbsp;&nbsp;
       <input type="text" name="userId" value={formData.userId} onChange={handleChange} placeholder="Your user id" id="userid"/>
+      <br></br><br></br>
       <label htmlFor='startpoint'>Starting Point</label>
+      &nbsp;&nbsp;
       <input type="text" name="startpoint" value={formData.startpoint} onChange={handleChange} placeholder="Your startpoint" id="startpoint"/>
-      <label htmlFor='endpoint'>End Point</label>
+      <br></br><br></br>
+      <label htmlFor='endpoint'>End Point</label>&nbsp;&nbsp;
       <input type="text" name="endpoint" value={formData.endpoint} onChange={handleChange} placeholder="Your endpoint" id="endpoint"/>
-      <label htmlFor='triptype'>Trip Type</label>
+      <br></br><br></br>
+      <label htmlFor='triptype'>Trip Type</label>&nbsp;&nbsp;
       <input type="text" name="type" value={formData.type} onChange={handleChange} placeholder="Your Type" />
+      <br></br><br></br>
       
        {/* Personality input field */}
+       <label htmlFor='personality'>Your Personality </label>&nbsp;&nbsp;
        <input
         type="text"
         name="personality"
         value={formData.personality.join(',')}  
         onChange={handleChange}
         placeholder="Your Personality (comma-separated)"
+        id="personality"
       />
+      <br></br><br></br>
 
       {/* Visiting points input field */}
+      <label htmlFor='visitingPoints'>Enter visiting points </label>&nbsp;&nbsp;
       <input
         type="text"
         name="visitingPoints"
@@ -80,6 +90,7 @@ const FormComponent = () => {
         onChange={handleChange}
         placeholder="Your visiting points (comma-separated)"
       />
+      <br></br><br></br>
       <button type="submit">Add</button>
     </form>
   );

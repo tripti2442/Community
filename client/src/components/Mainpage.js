@@ -7,6 +7,8 @@ export default function Mainpage() {
     // State to track the selected option
     const [selectedOption, setSelectedOption] = useState("Home");
 
+
+
     // Function to handle option selection
     const handleOptionSelect = (option) => {
         setSelectedOption(option);
@@ -15,6 +17,8 @@ export default function Mainpage() {
     // Content for each option
     const renderContent = () => {
         switch (selectedOption) {
+            case "Home":
+                return <div>Home Feed Content</div>;
             case "Search Destination":
                 return <div>Search Destination Content</div>;
             case "Find a Travel Buddy":
@@ -23,12 +27,8 @@ export default function Mainpage() {
                 return <FormComponent/>;
             case "Add a Post":
                 return <div>Add a Post Content</div>;
-            case "Home Feed":
-                return <div>Home Feed Content</div>;
             case "User Profile":
                 return <div>User Profile Content</div>;
-            default:
-                return <div>Home Content</div>;
         }
     };
 
@@ -37,11 +37,11 @@ export default function Mainpage() {
             <div className="sidebar">
                 {/* Sidebar content goes here */}
                 <ul>
+                    <li className={selectedOption === "Home" ? "selected" : ""} onClick={() => handleOptionSelect("Home")}>Home</li>
                     <li className={selectedOption === "Search Destination" ? "selected" : ""} onClick={() => handleOptionSelect("Search Destination")}>Search Destination</li>
                     <li className={selectedOption === "Find a Travel Buddy" ? "selected" : ""} onClick={() => handleOptionSelect("Find a Travel Buddy")}>Find a Travel Buddy</li>
                     <li className={selectedOption === "Add a Travel Buddy" ? "selected" : ""} onClick={() => handleOptionSelect("Add a Travel Buddy")}>Add a Travel Buddy</li>
                     <li className={selectedOption === "Add a Post" ? "selected" : ""} onClick={() => handleOptionSelect("Add a Post")}>Add a Post</li>
-                    <li className={selectedOption === "Home Feed" ? "selected" : ""} onClick={() => handleOptionSelect("Home Feed")}>Home Feed</li>
                     <li className={selectedOption === "User Profile" ? "selected" : ""} onClick={() => handleOptionSelect("User Profile")}>User Profile</li>
                 </ul>
             </div>
