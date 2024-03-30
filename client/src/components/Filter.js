@@ -66,7 +66,9 @@ export class Filter extends Component {
                 <div className="partner-details">End Point: {partner.endpoint}</div>
                 <div className="partner-details">Type: {partner.type}</div>
                 <div className="partner-details">Rating: {partner.rating}</div>
+                <div className="partner-details">Date: {partner.date}</div>
                 <div className="partner-details">Personality: {partner.personality.join(', ')}</div>
+
                 {/* Add more fields as needed */}
               </li>
             ))}

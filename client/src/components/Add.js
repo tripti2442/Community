@@ -8,7 +8,8 @@ const FormComponent = () => {
     endpoint:'',
     personality:[],
     type:'',
-    visitingPoints:[]
+    visitingPoints:[],
+    date:''
   });
 
   const [showForm, setShowForm] = useState(false); // State variable to control form visibility
@@ -39,7 +40,8 @@ const FormComponent = () => {
           endpoint:'',
           personality:[],
           type:'',
-          visitingPoints:[]
+          visitingPoints:[],
+          date:''
         });
         // Optionally handle success (e.g., show a success message)
       } else {
@@ -96,6 +98,15 @@ const FormComponent = () => {
             placeholder="Your visiting points (comma-separated)"
           />
           <br /><br />
+          <label htmlFor='date'>Date</label>&nbsp;&nbsp;
+          <input
+        type="date"
+        name="date"
+        value={formData.date}
+        onChange={handleChange}
+        placeholder="Date"
+           />
+           <br /><br />
           <button type="submit" id='submitbutton'>Add</button>
         </form>
       )}
