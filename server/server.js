@@ -32,6 +32,7 @@ app.post('/api/submitFormData', async (req, res) => {
         if (users) {
             await db.collection('partners').insertOne({
                 userId: formData.userId,
+                date: formData.date,
                 name: users.name,
                 startpoint: formData.startpoint,
                 endpoint: formData.endpoint,

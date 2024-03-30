@@ -82,6 +82,7 @@ export class Filter extends Component {
                 <div>End Point: {partner.endpoint}</div>
                 <div>Type: {partner.type}</div>
                 <div>Rating: {partner.rating}</div>
+                <div>Date: {partner.date}</div>
                 <div>Personality: {partner.personality.join(', ')}</div>
                 {/* Add more fields as needed */}
               </li>
@@ -109,6 +110,7 @@ export class Filter extends Component {
                 <div>End Point: {partner.endpoint}</div>
                 <div>Type: {partner.type}</div>
                 <div>Rating: {partner.rating}</div>
+                <div>Date: {partner.date}</div>
                 <div>Personality: {partner.personality.join(', ')}</div>
                 {/* Add more fields as needed */}
               </li>
@@ -134,6 +136,7 @@ export class Filter extends Component {
                 <div>End Point: {partner.endpoint}</div>
                 <div>Type: {partner.type}</div>
                 <div>Rating: {partner.rating}</div>
+                <div>Date: {partner.date}</div>
                 <div>Personality: {partner.personality.join(', ')}</div>
                 {/* Add more fields as needed */}
               </li>
@@ -157,6 +160,7 @@ export class Filter extends Component {
                 <div>End Point: {partner.endpoint}</div>
                 <div>Type: {partner.type}</div>
                 <div>Rating: {partner.rating}</div>
+                <div>Date: {partner.date}</div>
                 <div>Personality: {partner.personality.join(', ')}</div>
                 {/* Add more fields as needed */}
               </li>
