@@ -116,99 +116,49 @@ app.post("/api", (req, res) => {
         });
 });
 
-/*app.get("/user", (req, res) => {
-    let users = [];
-    db.collection('userProfile')
-        .find({userId : 400})
-        .forEach(user => users.push(user))
-        .then(() => {
-            res.status(200).json(users);
-        })
-        .catch(() => {
-            res.status(500).json({ error: 'Could not fetch documents' });
-        });
-});*/
+
+const mongoose = require('mongoose');
+const cors = require('cors');
+const multer = require('multer');
+const path = require('path');
+const UserModel= require('./models/Users');
 
 
-/*const express= require('express')
+app.use(cors());
+app.use(express.json());
+app.use(express.static('public'));
 
-const { connectToDb, getDb }= require('./db')
-const app= express()
-app.use(express.json())
+mongoose.connect('mongodb://127.0.0.1:27017/community')
 
-let db
-
-connectToDb((err)=>{
-    if(!err){
-    app.listen(5000,()=> {console.log("server running at port 5000")})
-    db=getDb()
-}
-
-
-})
-
-
-app.get("/api",(req,res)=>{
-    let partners=[]
-    db.collection('partners')
-    .find() //cursor toArray forEach
-    
-    .forEach(partner=> partners.push(partner))
-    .then(()=>{
-        res.status(200).json(partners)
-    })
-    .catch(()=>{
-        res.status(500).json({error:'could not fetch docs'}) 
-    })
-    
-})
-
-app.post("/api",(req,res)=>{
-    const partner=req.body
-    db.collection('partners')
-    .insertOne(partner)
-    .then(result=>{
-        res.status(201).json(result)
-    })
-    .catch(err=>{
-        res.status(500).json({err: 'could not create new document'})
-    })
-})
- 
-app.get("/user",(req,res)=>{
-    let users=[]
-    db.collection('userProfile')
-    .find() //cursor toArray forEach
-    
-    .forEach(user=> userProfile.push(user))
-    .then(()=>{
-        res.status(200).json(userProfile)
-    })
-    .catch(()=>{
-        res.status(500).json({error:'could not fetch docs'}) 
-    })
-    
-})*/
-
-
-/*app.post("/api", async (req, res) => {
-    try {
-        const partner = req.body;
-
-        // Lookup the user's profile to get the rating
-        const userProfile = await db.collection('userProfile').findOne({ userId: partner.userId });
-
-        // If userProfile is found, copy its rating to the partner
-        if (userProfile) {
-            partner.rating = userProfile.rating;
-        }
-
-        // Insert the new partner into the partners collection
-        const result = await db.collection('partners').insertOne(partner);
-
-        res.status(201).json(result);
-    } catch (err) {
-        console.error('Error adding new partner:', err);
-        res.status(500).json({ err: 'Could not create new document' });
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/Images');
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname));
     }
-});*/
+});
+
+const upload = multer({
+    storage: storage
+});
+
+app.post('/upload', upload.single('file'), (req, res) => {
+    UserModel.create({
+        caption: req.body.caption,
+        userId: req.body.userId,
+        location: req.body.location,
+        image: req.file.filename})
+    .then(result=> res.json(result))
+    .catch(err=> console.log(err))
+});
+
+
+app.get('/getImage',(req,res)=>{
+    UserModel.find()
+    .then(users =>res.json(users))
+    .catch(err => res.json(err))
+})
+
+
+
