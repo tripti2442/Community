@@ -27,8 +27,7 @@ class BuddySearch extends Component {
             value={startLocation} 
             onChange={onInputChange} 
           />
-          <br/><br/>
-
+          &nbsp; &nbsp;&nbsp; &nbsp;
           <label htmlFor="endLocation">Reach on:</label>
           &nbsp; &nbsp;
           <input 
@@ -39,8 +38,7 @@ class BuddySearch extends Component {
             value={endLocation} 
             onChange={onInputChange} 
           />
-          <br/><br/>
-
+          &nbsp; &nbsp;&nbsp; &nbsp;
           <button type="submit">Submit</button>
         </form>
       </div>

@@ -7,8 +7,11 @@
 
 .sidebar {
     width: 200px; /* Set the width of the sidebar */
-    background-color: #f0f0f0;
+    background-color: black;
     padding: 20px;
+    color: white;
+    font-size: larger;
+
 }
 
 .sidebar ul {
@@ -19,10 +22,11 @@
 .sidebar li {
     margin-bottom: 10px;
     cursor: pointer; /* Change cursor to pointer on hover */
+
 }
 
 .selected {
-    background-color: skyblue; /* Change background color for active navbar item */
+    color: #ff5903; /* Change background color for active navbar item */
 }
 
 .main-content {

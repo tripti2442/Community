@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Mainpage.css"; // Import CSS file for styling
-import FormComponent from "./Add";
-import BuddySearch from "./BuddySearch";
+import Post from "./Post";
+import Home from "./Home.js";
 
 export default function Mainpage() {
     // State to track the selected option
@@ -21,12 +21,10 @@ export default function Mainpage() {
                 return <div>Home Feed Content</div>;
             case "Search Destination":
                 return <div>Search Destination Content</div>;
-            case "Find a Travel Buddy":
-                return <BuddySearch/>;
-            case "Add a Travel Buddy":
-                return <FormComponent/>;
+            case "Travel Buddy":
+                return <Home/>;
             case "Add a Post":
-                return <div>Add a Post Content</div>;
+                return <Post/>;
             case "User Profile":
                 return <div>User Profile Content</div>;
         }
@@ -39,8 +37,7 @@ export default function Mainpage() {
                 <ul>
                     <li className={selectedOption === "Home" ? "selected" : ""} onClick={() => handleOptionSelect("Home")}>Home</li>
                     <li className={selectedOption === "Search Destination" ? "selected" : ""} onClick={() => handleOptionSelect("Search Destination")}>Search Destination</li>
-                    <li className={selectedOption === "Find a Travel Buddy" ? "selected" : ""} onClick={() => handleOptionSelect("Find a Travel Buddy")}>Find a Travel Buddy</li>
-                    <li className={selectedOption === "Add a Travel Buddy" ? "selected" : ""} onClick={() => handleOptionSelect("Add a Travel Buddy")}>Add a Travel Buddy</li>
+                    <li className={selectedOption === "Travel Buddy" ? "selected" : ""} onClick={() => handleOptionSelect("Travel Buddy")}>Travel Buddy</li>
                     <li className={selectedOption === "Add a Post" ? "selected" : ""} onClick={() => handleOptionSelect("Add a Post")}>Add a Post</li>
                     <li className={selectedOption === "User Profile" ? "selected" : ""} onClick={() => handleOptionSelect("User Profile")}>User Profile</li>
                 </ul>

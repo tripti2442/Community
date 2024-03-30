@@ -4,77 +4,61 @@ export class Filter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showPartners: false,
-      showSoloPartners: false,
-      showPersonaPartners: false, // Initialize showPersonaPartners
+      selectedFilter: 'all', // Initialize selectedFilter to 'all'
       personalityArray: ["meerkat","panda"]
     };
   }
 
-  togglePartners = () => {
-    this.setState(prevState => ({
-      showPartners: !prevState.showPartners // Toggle the state
-    }));
+  handleFilterChange = (event) => {
+    this.setState({ selectedFilter: event.target.value });
   }
 
-  toggleSoloPartners = () => {
-    this.setState(prevState => ({
-      showSoloPartners: !prevState.showSoloPartners // Toggle the state
-    }));
-  }
-
-  togglepersonality = () => {
-    this.setState(prevState => ({
-      showPersonaPartners: !prevState.showPersonaPartners // Toggle the state
-    }));
-  }
-
-  toggleAllPartners = () => {
-    this.setState(prevState => ({
-      showAllPartners : !prevState.showAllPartners  // Toggle the state
-    }));
-
-  }
   render() {
     const { partners } = this.props;
-    const { startLocation , endLocation }=this.props;
-    const { showPartners } = this.state;
-    const { showSoloPartners } = this.state;
-    const { showPersonaPartners }= this.state;
-    const { showAllPartners  }=this.state;
-
+    const { startLocation, endLocation } = this.props;
+    const { selectedFilter } = this.state;
 
     // Filter partners whose startpoint is "Dwarka" and endpoint is "Nanital"
     const filteredPartners = partners.filter(partner => (
       partner.startpoint === startLocation && partner.endpoint === endLocation
     ));
 
-    
-    
-      // Sort filtered partners in descending order based on rating
+    // Sort filtered partners in descending order based on rating
     const sortedPartners = filteredPartners.slice().sort((a, b) => b.rating - a.rating);
-     
-    
-     
 
-    const soloPartners = showSoloPartners ? filteredPartners.filter(partner => partner.type === "solo") : filteredPartners;
-    const personaPartners = filteredPartners.sort((a, b) => {
-      const countA = a.personality.filter(personality => this.state.personalityArray.includes(personality)).length;
-      const countB = b.personality.filter(personality => this.state.personalityArray.includes(personality)).length;
-      // Partners with the most common personalities will appear first
-      return countB - countA;
-    });
+    // Apply selected filter
+    let filteredList;
+    switch (selectedFilter) {
+      case 'ratings':
+        filteredList = sortedPartners;
+        break;
+      case 'solo':
+        filteredList = filteredPartners.filter(partner => partner.type === "solo");
+        break;
+      case 'personality':
+        filteredList = filteredPartners.sort((a, b) => {
+          const countA = a.personality.filter(personality => this.state.personalityArray.includes(personality)).length;
+          const countB = b.personality.filter(personality => this.state.personalityArray.includes(personality)).length;
+          return countB - countA;
+        });
+        break;
+      default:
+        filteredList = partners;
+    }
+
     return (
       <div>
-        <h2>FILTER</h2>
-
-        {/*SHOWS ALL PARTNERS*/}
-        <button onClick={this.toggleAllPartners}>
-          {showAllPartners ? 'Hide All Partners' : 'Show All Partners'}
-        </button>
-        {showAllPartners && partners && partners.length > 0 ? (
+        <br></br>
+        Show
+        <select value={selectedFilter} onChange={this.handleFilterChange}>
+          <option value="all">Show All Partners</option>
+          <option value="ratings">Sort by Ratings</option>
+          <option value="solo">Show Solo Partners</option>
+          <option value="personality">Sort by Personality</option>
+        </select>
+        {filteredList && filteredList.length > 0 ? (
           <ul>
-            {partners.map((partner, index) => (
+            {filteredList.map((partner, index) => (
               <li key={index}>
                 {/* Render partner details */}
                 <div>Name: {partner.name}</div>
@@ -82,7 +66,6 @@ export class Filter extends Component {
                 <div>End Point: {partner.endpoint}</div>
                 <div>Type: {partner.type}</div>
                 <div>Rating: {partner.rating}</div>
-                <div>Date: {partner.date}</div>
                 <div>Personality: {partner.personality.join(', ')}</div>
                 {/* Add more fields as needed */}
               </li>
@@ -91,86 +74,6 @@ export class Filter extends Component {
         ) : (
           <p>No partners found</p>
         )}
-
-
-
-
-        {/*SHOWS PARTNERS SORTED ACCORDING TO RATINGS*/}
-        <button onClick={this.togglePartners}>
-          {showPartners ? 'Hide Ratings' : 'Show Ratings'}
-        </button>
-
-        {showPartners && sortedPartners && sortedPartners.length > 0 ? (
-          <ul>
-            {sortedPartners.map((partner, index) => (
-              <li key={index}>
-                {/* Render partner details */}
-                <div>Name: {partner.name}</div>
-                <div>Start Point: {partner.startpoint}</div>
-                <div>End Point: {partner.endpoint}</div>
-                <div>Type: {partner.type}</div>
-                <div>Rating: {partner.rating}</div>
-                <div>Date: {partner.date}</div>
-                <div>Personality: {partner.personality.join(', ')}</div>
-                {/* Add more fields as needed */}
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>No partners found with startpoint="Dwarka" and endpoint="Nanital"</p>
-        )}
-
-
-        {/*SHOWS PARTNERS SORTED ACCORDING TO TRAVELTYPE- SOLO*/}
-        <button onClick={this.toggleSoloPartners}>
-          {showSoloPartners ? 'Hide Solo Partners' : 'Show Solo Partners'}
-        </button>
-        
-        {showSoloPartners && soloPartners && soloPartners.length > 0 ? (
-          <ul>
-            {soloPartners.map((partner, index) => (
-              <li key={index}>
-                {/* Render partner details */}
-                <div>Name: {partner.name}</div>
-                <div>Start Point: {partner.startpoint}</div>
-                <div>End Point: {partner.endpoint}</div>
-                <div>Type: {partner.type}</div>
-                <div>Rating: {partner.rating}</div>
-                <div>Date: {partner.date}</div>
-                <div>Personality: {partner.personality.join(', ')}</div>
-                {/* Add more fields as needed */}
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>No partners found with startpoint="Dwarka" and endpoint="Nanital"</p>
-        )}
-
-        {/*SHOWS PARTNERS SORTED ACCORDING TO COMMON PERSONALITY*/}
-        <button onClick={this.togglepersonality }>
-          {showPersonaPartners ? 'Hide personality' : 'Show personality'}
-        </button>
-        {showPersonaPartners && personaPartners && personaPartners.length > 0 ? (
-          <ul>
-            {personaPartners.map((partner, index) => (
-              <li key={index}>
-                {/* Render partner details */}
-                <div>Name: {partner.name}</div>
-                <div>Start Point: {partner.startpoint}</div>
-                <div>End Point: {partner.endpoint}</div>
-                <div>Type: {partner.type}</div>
-                <div>Rating: {partner.rating}</div>
-                <div>Date: {partner.date}</div>
-                <div>Personality: {partner.personality.join(', ')}</div>
-                {/* Add more fields as needed */}
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>No partners found</p>
-        )}
-       
-       
       </div>
     );
   }
