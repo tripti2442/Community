@@ -66,7 +66,7 @@ export class Filter extends Component {
     });
     return (
       <div>
-        <h2>Partners:</h2>
+        <h2>FILTER</h2>
 
         {/*SHOWS ALL PARTNERS*/}
         <button onClick={this.toggleAllPartners}>
@@ -96,7 +96,7 @@ export class Filter extends Component {
 
         {/*SHOWS PARTNERS SORTED ACCORDING TO RATINGS*/}
         <button onClick={this.togglePartners}>
-          {showPartners ? 'Hide Partners' : 'Show Partners'}
+          {showPartners ? 'Hide Ratings' : 'Show Ratings'}
         </button>
 
         {showPartners && sortedPartners && sortedPartners.length > 0 ? (
@@ -145,7 +145,7 @@ export class Filter extends Component {
 
         {/*SHOWS PARTNERS SORTED ACCORDING TO COMMON PERSONALITY*/}
         <button onClick={this.togglepersonality }>
-          {showPersonaPartners ? 'Hide personaPartners' : 'Show personaPartners'}
+          {showPersonaPartners ? 'Hide personality' : 'Show personality'}
         </button>
         {showPersonaPartners && personaPartners && personaPartners.length > 0 ? (
           <ul>
