@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Search from './Search';
+import Search from './BuddySearch';
 import Filter from './Filter';
 import Add from './Add';
 import Delete from './Delete';

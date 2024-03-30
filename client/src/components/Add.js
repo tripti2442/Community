@@ -54,9 +54,13 @@ const FormComponent = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" name="userId" value={formData.userId} onChange={handleChange} placeholder="Your user id" />
-      <input type="text" name="startpoint" value={formData.startpoint} onChange={handleChange} placeholder="Your startpoint" />
-      <input type="text" name="endpoint" value={formData.endpoint} onChange={handleChange} placeholder="Your endpoint" />
+      <label htmlFor='userid'>User ID </label>
+      <input type="text" name="userId" value={formData.userId} onChange={handleChange} placeholder="Your user id" id="userid"/>
+      <label htmlFor='startpoint'>Starting Point</label>
+      <input type="text" name="startpoint" value={formData.startpoint} onChange={handleChange} placeholder="Your startpoint" id="startpoint"/>
+      <label htmlFor='endpoint'>End Point</label>
+      <input type="text" name="endpoint" value={formData.endpoint} onChange={handleChange} placeholder="Your endpoint" id="endpoint"/>
+      <label htmlFor='triptype'>Trip Type</label>
       <input type="text" name="type" value={formData.type} onChange={handleChange} placeholder="Your Type" />
       
        {/* Personality input field */}

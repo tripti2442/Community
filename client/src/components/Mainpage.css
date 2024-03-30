@@ -1,0 +1,31 @@
+/* Mainpage.css */
+
+.main-page {
+    display: flex;
+    height: 100vh; /* Set the main page height to fill the viewport */
+}
+
+.sidebar {
+    width: 200px; /* Set the width of the sidebar */
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.selected {
+    background-color: skyblue; /* Change background color for active navbar item */
+}
+
+.main-content {
+    flex: 1; /* Make the main content expand to fill the remaining space */
+    padding: 20px;
+}
