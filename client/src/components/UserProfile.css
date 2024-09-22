@@ -1,0 +1,49 @@
+.profile-container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .profile-picture img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  
+  .profile-info {
+    flex: 1;
+  }
+  
+  .ratings {
+    margin-bottom: 10px;
+  }
+  
+  .posts {
+    margin-bottom: 20px;
+  }
+  
+  .post {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .post img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  .about {
+    margin-bottom: 20px;
+  }
+  
+  .places {
+    margin-bottom: 20px;
+  }
+  

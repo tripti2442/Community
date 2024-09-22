@@ -3,6 +3,7 @@ import "./Mainpage.css"; // Import CSS file for styling
 import Post from "./Post";
 import Home from "./Home.js";
 import HomeFeed from "./feedposts.js";
+import UserProfile from "./UserProfile"
 
 export default function Mainpage() {
     // State to track the selected option
@@ -25,7 +26,7 @@ export default function Mainpage() {
             case "Travel Buddy":
                 return <Home/>;
             case "User Profile":
-                return <div>User Profile Content</div>;
+                return <UserProfile></UserProfile>;
         }
     };
 
